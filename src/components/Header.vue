@@ -2,8 +2,10 @@
 	<header>
 		<h1>{{ title }}</h1>
 		<Button
-			text="Add Task"
-			color="green" />
+			y-show="homepage"
+			@btn-click="$emit('toggle-add-task')"
+			:text="showAddTask ? 'Close' : 'Add Task'"
+			:color="showAddTask ? 'red' : 'green'" />
 	</header>
 </template>
 
@@ -14,9 +16,19 @@
 		name: "Header",
 		props: {
 			title: String,
+			showAddTask: Boolean,
 		},
 		components: {
 			Button,
+		},
+		computed: {
+			homepage() {
+				if (this.$route.path === "/") {
+					return true
+				} else {
+					return false
+				}
+			},
 		},
 	}
 </script>
