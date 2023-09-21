@@ -17,8 +17,6 @@
 		name: "App",
 		components: {
 			Header,
-			Tasks,
-			AddTask,
 			Footer,
 		},
 		data() {
